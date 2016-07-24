@@ -1,0 +1,22 @@
+{
+  "name": "nursing-tracker",
+  "description": "Nursing time tracking app",
+  "main": "index.html",
+  "authors": [
+    "favio41"
+  ],
+  "license": "NPOSL-3.0",
+  "homepage": "https://github.com/favio41/nursing-tracker",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.9"
+  }
+}
