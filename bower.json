@@ -17,6 +17,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "^1.0.9"
+    "angular-material": "master",
+    "moment": "^2.14.1"
+  },
+  "resolutions": {
+    "angular-material": "master"
   }
 }
