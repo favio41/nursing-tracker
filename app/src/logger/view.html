@@ -1,0 +1,13 @@
+<div layout="column">
+  <div class="action" layout="row">
+    <div flex ng-click="vm.createNewEntry('Eat')">E</div>
+    <div flex ng-click="vm.createNewEntry('Activity')">A</div>
+    <div flex ng-click="vm.createNewEntry('Sleep')">S</div>
+    <div flex ng-click="vm.createNewEntry('Diaper')">D</div>
+    <div flex ng-click="vm.createNewEntry('Other')">O</div>
+  </div>
+  <div>
+    <active-log-entry log="vm.currentLog"></active-log-entry>
+  </div>
+  <log-entry ng-repeat="log in vm.logs" log="log"></log-entry>
+</div>
