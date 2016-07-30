@@ -23,7 +23,7 @@
 		}
 		else {
 			self.categories = {
-				'Eat': null,
+				'Ate': null,
 				'Sleep': null,
 				'Diaper': null,
 				'Activity': null,

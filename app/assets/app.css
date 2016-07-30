@@ -1,3 +1,9 @@
+@font-face {
+    font-family: digital;
+    src: url(digital-7-mono-italic.ttf);
+}
+
+
 html, body {
   font-family: 'Roboto', sans-serif;
   font-size:14px;
@@ -6,6 +12,102 @@ html, body {
   padding: 0px;
 }
 
-.action {
+body {
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    background: transparent;
+}
+/* You could use :after - it doesn't really matter */
+body:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    background-image: url('http://previews.123rf.com/images/tatianakost/tatianakost1405/tatianakost140500011/28057995-Colorful-Sleep-newborn-items-collection-in-seamless-pattern-for-Baby-boy-For-fabrics-Wallpaper-packa-Stock-Illustration.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.category-wrapper{
+	padding-top: 0px;
+}
+category{
+	display: block;
+	width: 260px;
+	margin: 0 auto;
+	padding: 15px 55px 0px 61px;
+	/* background-color: rgba(255,255,255,0.7); */
+	border-radius: 15px;
+}
+category h3{
 	text-align: center;
+	font-size: 30px;
+	font-family: 'Rock Salt', cursive;
+	margin: 10px 0px 20px 20px;
+}
+
+category-entry{
+	display: block;
+	margin-bottom: 26px;
+}
+
+category-entry .digital {
+	font-family: digital;
+	font-size: 37px;
+	float: left;
+	padding-right: 20px;
+	line-height: 35px;
+}
+
+category-entry button{
+	min-width: 130px;
+}
+
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    border: 1px solid black;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, .button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+    color: #333;
+    border-color: #888;
+    outline: 0;
+}
+
+.button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+}
+
+.button.button-primary:hover, button.button-primary:hover, input[type="submit"].button-primary:hover, input[type="reset"].button-primary:hover, input[type="button"].button-primary:hover, .button.button-primary:focus, button.button-primary:focus, input[type="submit"].button-primary:focus, input[type="reset"].button-primary:focus, input[type="button"].button-primary:focus {
+    color: #FFF;
+    background-color: #1EAEDB;
+    border-color: #1EAEDB;
 }

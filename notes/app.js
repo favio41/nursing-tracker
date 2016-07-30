@@ -1,2 +1,2 @@
 angular
-	.module( 'nursing-timer', [ 'ngMaterial' ] )
+	.module( 'nursing-timer', [ ] )

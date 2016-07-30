@@ -1,11 +1,11 @@
 <div>
-	<span ng-show="vm.entry">
+	<span class="digital" ng-show="vm.entry">
 		{{vm.entry.fromNow()}}
 	</span>
-	<span ng-hide="vm.entry">
+	<span class="digital" ng-hide="vm.entry">
 		00:00
 	</span>
-	<button ng-click="vm.newEntry(vm.category)" ng-show="vm.entry.discontinous">{{vm.entry.getText()}}</button>
-	<button ng-click="vm.newEntry(vm.category)" ng-hide="vm.entry.discontinous">{{vm.category}}</button>
+	<button class="" ng-click="vm.newEntry(vm.category)" ng-show="vm.entry.discontinous">{{vm.entry.getText()}}</button>
+	<button class="" ng-click="vm.newEntry(vm.category)" ng-hide="vm.entry.discontinous">{{vm.category}}</button>
 
 </div>
