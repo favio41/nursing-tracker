@@ -2,50 +2,71 @@
 	
 	'use strict';
 
-	function Log(type){
+	function Log(type, start){
 		this.type = type;
-		this.start = moment();
+		this.start = start;
+	}
+	Log.prototype.finish = function(){
+		this.end = moment();
+	}
+	Log.prototype.fromNow = function(){
+		var duration = moment.duration(moment().diff(this.start));
+		var hours = Math.floor(duration.asHours());
+		var minutes = Math.floor(duration.asMinutes())-hours*60;
+		// if(hours == 0 && minutes == 0)
+		// 	return 'Seconds ago'
+		if(hours <= 10)
+			hours = '0'+hours;
+		if(minutes <= 10)
+			minutes = '0'+minutes;
+		return hours + ':' + minutes;
 	}
 
-	function Eat(){
-		Log.call(this, 'Eat');
+	function DiscontinuousLog(type, start, active){
+		Log.call(this, type, start);
+		this.discontinous = true;
+		this.active = active;	
 	}
-	angular.extend(Eat.prototype, Log.prototype);
-
-	function Activity(){
-		Log.call(this, 'Activity');
+	DiscontinuousLog.prototype.getText = function(){
+		return this.active? this.activeText : this.inactiveText;
 	}
-	angular.extend(Activity.prototype, Log.prototype);
+	angular.extend(DiscontinuousLog.prototype, Log.prototype);
 
-	function Sleep(){
-		Log.call(this, 'Sleep');
+
+	function Sleep(start, active){
+		DiscontinuousLog.call(this, 'Sleep', start, active);
+		this.activeText = 'Sleeping';
+		this.inactiveText = 'Awake';
 	}
-	angular.extend(Sleep.prototype, Log.prototype);
+	angular.extend(Sleep.prototype, DiscontinuousLog.prototype);
 
-	function Diaper(){
-		Log.call(this, 'Diaper');
+	function Activity(start, active){
+		DiscontinuousLog.call(this, 'Activity', start, active);
+		this.activeText = 'Play time';
+		this.inactiveText = 'Not active';
 	}
-	angular.extend(Diaper.prototype, Log.prototype);
+	angular.extend(Activity.prototype, DiscontinuousLog.prototype);
 
-	function Other(){
-		Log.call(this, 'Other');
+
+	function LogFactory(type, start, active) {
+		var discontinous = true;
+		if(!start)
+			start = moment();
+
+		if(type == 'Sleep')
+			return new Sleep(start, active);
+		if(type == 'Activity')
+			return new Activity(start, active);
+
+		return new Log(type, start);
 	}
-	angular.extend(Other.prototype, Log.prototype);
 
+	LogFactory.dehidrate = function(log){
+		return JSON.stringify(log);
+	}
 
-	function LogFactory(entryType) {
-		if(entryType == 'Eat')
-			return new Eat();
-		if(entryType == 'Activity')
-			return new Activity();
-		if(entryType == 'Sleep')
-			return new Sleep();
-		if(entryType == 'Diaper')
-			return new Diaper();
-		if(entryType == 'Other')
-			return new Other();
-		else
-			throw new Error('Unknow entry type: '+entryType);
+	LogFactory.hidrate = function(obj){
+		return LogFactory(obj.type, moment(obj.start), obj.active);
 	}
 
 	angular.module('nursing-timer').service('LogFactory', function() { return LogFactory; });
