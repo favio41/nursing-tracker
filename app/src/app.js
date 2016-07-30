@@ -1,5 +1,19 @@
 angular
-    .module('nursing-timer', ['ngMaterial'])
+    .module('nursing-timer', ['ngRoute', 'ngMaterial'])
+    .config(function($routeProvider, $locationProvider) {
+        $routeProvider
+        .when('/dashboard', {
+            templateUrl: 'src/pages/dashboard.html',
+        })
+        .otherwise('dashboard')
+        // .when('/Book/:bookId/ch/:chapterId', {
+        //   templateUrl: 'chapter.html',
+        //   controller: 'ChapterController'
+        // });
+
+        // configure html5 to get links working on jsfiddle
+        // $locationProvider.html5Mode(true);
+    })
     .config(function($mdThemingProvider, $mdIconProvider){
 
         // $mdIconProvider

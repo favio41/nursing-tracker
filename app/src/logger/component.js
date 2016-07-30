@@ -9,13 +9,15 @@
 		self.logs = [];
 		self.currentLog;
 
-		this.createNewEntry = function(entryType){
+		self.createNewEntry = function(entryType){
 			if(!self.currentLog || (self.currentLog.type != entryType) )
 			{
 				self.currentLog = LogFactory(entryType);
 				self.logs.unshift(self.currentLog);
 			}
 		}
+
+		self.createNewEntry('Eat');
 	}
 
 	angular.module('nursing-timer').component('logger', {
