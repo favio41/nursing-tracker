@@ -5,6 +5,8 @@
 	function CategoryController($interval, $scope, LogFactory) {
 		var self = this;
 
+		self.name = localStorage.getItem("user-name") || 'Name';
+
 		function saveCategories(){
 			localStorage.setItem("categories", LogFactory.dehidrate(self.categories));
 		}
@@ -33,9 +35,9 @@
 			saveCategories();
 		}
 		
-		$interval(function(){
-		// 	$scope.$apply();
-		}, 30000);
+		//This allows the scope to refresh each 30 secons, and display changes in
+		//the clocks.
+		$interval(function(){}, 30000);
 
 		self.newEntry = function(entry){
 			var key = moment().format('YYYY-MM-DD')
@@ -51,8 +53,15 @@
 			}
 			self.categories[entry] = new LogFactory(entry, null, !(self.categories[entry] && self.categories[entry].active));
 			saveCategories();
+		}
 
-
+		self.changeName = function(){
+			var person = prompt("Please enter the new name", "");
+			    
+			if (person != null) {
+				self.name = person;
+				localStorage.setItem("user-name", person);
+			}
 		}
 	}
 
