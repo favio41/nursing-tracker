@@ -1,0 +1,28 @@
+CACHE MANIFEST
+# 2016-08-29:v1
+
+CACHE:
+http://fonts.googleapis.com/css?family=Roboto:400|Rock+Salt
+https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.css
+assets/app.css
+https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js
+https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-aria.min.js
+https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js
+https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js
+https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.js
+https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js
+src/app.js
+src/logger/model.js
+src/logger/component.js
+src/category/component.js
+src/category-entry/component.js
+src/log-entry/component.js
+src/active-log-entry/component.js
+src/pages/dashboard.html
+src/category/view.html
+src/category-entry/view.html
+assets/digital-7-mono-italic.ttf
+assets/blue-background.jpg
+
+NETWORK:
+*
