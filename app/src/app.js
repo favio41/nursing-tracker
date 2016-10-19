@@ -5,11 +5,11 @@ angular
         .when('/dashboard', {
             templateUrl: 'src/pages/dashboard.html',
         })
-        .otherwise('dashboard')
-        // .when('/Book/:bookId/ch/:chapterId', {
-        //   templateUrl: 'chapter.html',
+        .when('/stats', {
+            templateUrl: 'src/pages/stats.html',
         //   controller: 'ChapterController'
-        // });
+        })
+        .otherwise('dashboard')
 
         // configure html5 to get links working on jsfiddle
         // $locationProvider.html5Mode(true);
