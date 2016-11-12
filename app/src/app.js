@@ -7,7 +7,6 @@ angular
         })
         .when('/stats', {
             templateUrl: 'src/pages/stats.html',
-        //   controller: 'ChapterController'
         })
         .otherwise('dashboard')
 

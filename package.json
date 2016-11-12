@@ -4,7 +4,9 @@
   "description": "Nursing time tracking app",
   "main": "index.html",
   "devDependencies": {},
-  "scripts": {},
+  "scripts": {
+    "serve": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/favio41/nursing-tracker.git"

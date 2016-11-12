@@ -1,0 +1,17 @@
+<svg width="100%" height="400" ng-init="categoryBoxHeight=50; categoryTextWidth=15; vm.categories = ['Sleep', 'Play', 'Diapers', 'Meds', 'Other']" xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<!-- yAxis -->
+	
+	<text text-anchor="end" fill="" font-size="10" ng-attr-y="{{($index*categoryBoxHeight)+(categoryBoxHeight/2)}}" ng-attr-x="{{categoryTextWidth}}%" ng-repeat="c in vm.categories">A</text>
+	<!-- Graph -->
+	<svg ng-attr-x="{{categoryTextWidth}}%" ng-attr-width="{{100-categoryTextWidth}}%">
+		<g
+			ng-repeat="category in vm.categories"
+			ng-attr-transform="translate(0,{{$index*categoryBoxHeight}})">
+			<rect width="100%" ng-attr-height="{{categoryBoxHeight}}" style="fill:rgb(255,0,0);"></rect>
+			<line x1="0%" x2="1%" y1="10" y2="10" style="stroke:rgb(0,0,220);stroke-width:2" />
+			<line x1="99%" x2="100%" y1="10" y2="10" style="stroke:rgb(0,0,220);stroke-width:2" />
+		</g>
+		<!-- xAxis -->
+		<line x1="0" ng-attr-y1="{{categoryBoxHeight*vm.categories.length}}" x2="100%" ng-attr-y2="{{categoryBoxHeight*vm.categories.length}}" style="stroke:rgb(0,200,0);stroke-width:2" />
+	</svg>
+</svg>
